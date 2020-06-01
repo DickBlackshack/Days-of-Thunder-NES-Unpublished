@@ -1,0 +1,54 @@
+ninsysc.obj:	ninsysc.asm nindef.asm ninref.asm
+	X6502 -Q NINSYSC $(nolst)
+
+pb.obj:		pb.asm nindef.asm ninref.asm
+	X6502 -Q PB $(lst)
+
+pbsound.obj:	pbsound.asm nindef.asm ninref.asm
+	X6502 -Q PBSOUND $(nolst)
+	
+mapstuff.obj:	mapstuff.asm nindef.asm ninref.asm
+	X6502 -Q MAPSTUFF $(nolst)
+	
+track0.obj:	track0.asm nindef.asm ninref.asm
+	X6502 -Q track0 $(nolst)
+	
+topview.obj:	topview.asm nindef.asm ninref.asm
+	X6502 -Q TOPVIEW $(nolst)
+	
+title.obj:	title.asm nindef.asm ninref.asm
+	X6502 -Q TITLE $(nolst)
+
+routines.obj:	routines.asm nindef.asm ninref.asm
+	X6502 -Q ROUTINES $(nolst)
+
+person.obj:	person.asm nindef.asm ninref.asm
+	X6502 -Q PERSON $(nolst)
+
+roadmaps.obj:	roadmaps.asm
+	X6502 -Q ROADMAPS $(nolst)
+
+ramuse.obj:	ramuse.asm nindef.asm ninref.asm
+	X6502 -Q RAMUSE $(nolst)
+	
+
+pb1.tsk:	pbsound.obj title.obj ninsysc.obj ramuse.obj routines.obj
+	XLINK -Q PBLINK1.LNK
+
+pb2.tsk:	person.obj roadmaps.obj ninsysc.obj ramuse.obj routines.obj
+	XLINK -Q PBLINK2.LNK
+
+pb3.tsk:	roadmaps.obj ninsysc.obj ramuse.obj routines.obj
+	XLINK -Q PBLINK3.LNK
+
+pb4.tsk:	track0.obj ninsysc.obj ramuse.obj routines.obj
+	XLINK -Q PBLINK4.LNK
+
+pb7.tsk:	ninsysc.obj routines.obj pbsound.obj title.obj \
+		person.obj ramuse.obj routines.obj topview.obj mapstuff.obj\
+		track0.obj
+	XLINK -Q PBLINK7.LNK
+
+pb0.tsk:	ninsysc.obj pb.obj ramuse.obj routines.obj
+	XLINK -Q PBLINK0.LNK
+

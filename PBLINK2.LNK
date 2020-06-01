@@ -1,0 +1,42 @@
+********* BANK0
+PB
+C000
+-8000
+********* BANK1
+PBSOUND
+_
+-8000
+TITLE
+_
+-
+********* BANK2
+PERSON
+_
+8000
+********* BANK3
+ROADMAPS
+_
+-8000
+********* BANK4
+TRACK0
+_
+-8000
+********* BANK7
+NINSYSC
+-C000
+-200
+-0
+-FFFA
+routines
+-
+MAPSTUFF
+-
+TOPVIEW
+-
+ramuse
+-
+-
+_
+PB2
+_
+XD
